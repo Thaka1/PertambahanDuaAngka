@@ -5,6 +5,8 @@
  */
 package gui;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Hafizh
@@ -97,7 +99,7 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
 
         jPanel4.setBackground(new java.awt.Color(204, 255, 255));
 
-        jLabel3.setText("Angka Ketiga");
+        jLabel3.setText("Hasil");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -121,6 +123,11 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
         );
 
         tambahBtn.setText("Tambah");
+        tambahBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tambahBtnActionPerformed(evt);
+            }
+        });
 
         hapusBtn.setText("Hapus");
 
@@ -180,6 +187,19 @@ public class PertambahanDuaAngkaGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tambahBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahBtnActionPerformed
+        // TODO add your handling code here:
+        if(angkapertamaTF.getText().equals("") || angkakeduaTF.getText().equals("")){
+        //Kasih Pesan Input tidak boleh kosong
+            JOptionPane.showMessageDialog(null, "Input tidak boleh kosong");
+        }else{
+            int angkaPertama = Integer.valueOf(angkapertamaTF.getText());
+            int angkaKedua = Integer.parseInt(angkakeduaTF.getText());
+            int hasil = angkaPertama + angkaKedua;
+            hasilTF.setText(Integer.toString(hasil));
+        }
+    }//GEN-LAST:event_tambahBtnActionPerformed
 
     /**
      * @param args the command line arguments
